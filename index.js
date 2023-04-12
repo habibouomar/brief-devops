@@ -1,6 +1,12 @@
 import express from "express";
 import path from "path"
+import dotenv from "dotenv";
 import homepageRouter from "./routes/homepageRoutes.js"
+import connectDB from "./config/connectDB.js";
+
+dotenv.config()
+
+connectDB();
 
 const __dirname = path.resolve();
 
