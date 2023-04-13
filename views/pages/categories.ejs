@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('../partials/head.ejs'); %>  
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header.ejs'); %>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="jumbotron">
+                    <h1>Categories List</h1>
+                    <p><%= tagline %></p>
+                    <ul>
+                        <% categories.forEach(function(category) { %>
+                          <li>
+                            <strong><%= category.categoryName %></strong>
+                            : <%= category.categoryDesc %>
+                          </li>
+                        <% }); %>
+                      </ul>
+                  </div> 
+            </div>
+
+            <div class="col-sm-4">
+                <div class="well">
+                  <h2>Category Management</h2>
+                </div>
+              </div>
+            </div>
+    </main>
+ 
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+
+</html>
