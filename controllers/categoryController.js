@@ -1,4 +1,3 @@
-import { Query } from "mongoose";
 import CategoryModel from "../models/Category.js";
 
 export const getCategories = async (req, res, next) => {
@@ -6,11 +5,9 @@ export const getCategories = async (req, res, next) => {
     try {
         let categories = await CategoryModel.find({});
         let tagline = "Here is the complete list of our product categories.";
-
-        console.log(categories);
         
         res.render("pages/categories",{
-            title: "CategoryList",
+            titlePage: "CategoryList",
             categories: categories,
             tagline: tagline
         })
@@ -27,7 +24,7 @@ export const postCategory = async (req, res, next) =>{
     const category = await CategoryModel.create({categoryName, categoryDesc})
   
     res.status(201).json({category})
-    console.log("Successful Create");
+    console.log("Category Successful Create");
 }
 
 export const updateCategoryById = async (req, res, next) =>{
@@ -39,7 +36,7 @@ export const updateCategoryById = async (req, res, next) =>{
     const category = await CategoryModel.findByIdAndUpdate( _id,{categoryName, categoryDesc})
   
     res.status(200).json({category})
-    console.log("Successful update");
+    console.log("Category Successful update");
 }
 
 export const deleteCategoryById = async (req, res, next) =>{
@@ -48,5 +45,5 @@ export const deleteCategoryById = async (req, res, next) =>{
     const category = await CategoryModel.findByIdAndDelete({ _id: categoryID})
   
     res.status(200).json({category})
-    console.log("Successful deletion");
+    console.log("Category Successful deletion");
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= titlePage %></title>
     <%- include('../partials/head.ejs'); %>   
 </head>
 
@@ -18,8 +18,21 @@
         <div class="row">
             <div class="col-sm-8">
               <div class="jumbotron">
+
                 <h1>Welcome To BioCare</h1>
                 <p>The company BioCare offer a selection of organic and eco-friendly products</p>
+
+                <% products.forEach(function(product) { %>
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= product.productName %></h5>
+                      <h6 class="card-subtitle mb-2 text-muted"><%= product.categoryID%></h6>
+                      <p class="card-text"> <%= product.productDesc %></p>
+                      <a href="#" class="card-link">More</a>
+                    </div>
+                  </div>
+                <% }); %>
+
               </div>
             </div>
           
