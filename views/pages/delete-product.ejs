@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= titlePage %></title>
+    <%- include('../partials/head.ejs'); %>  
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header.ejs'); %>
+    </header>
+
+    <main>
+        <div class="row">
+
+            <div class="col-sm-7">
+                <div class="jumbotron">
+                    <h1>Be Careful</h1>
+                    <h2>You are about to permanently delete the product :</h2>
+                    <h3 class="card-title"><%= product.productName %></h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Id : <%= id %></h4>
+                    <h5 class="card-subtitle mb-2 text-muted">by BioCare &copy;</h5>  
+
+                    <form action="/delete-product/<%= id %>" method="post">
+                        <input type="text" name="_id" hidden>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+
+                </div> 
+            </div>
+
+            <div class="col-sm-5">
+                <div class="well">
+                  <h3>...</h2>
+                </div>            
+            </div>
+        </div>
+    </main>
+ 
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+
+</html>

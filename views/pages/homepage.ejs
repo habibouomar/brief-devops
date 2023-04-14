@@ -16,29 +16,70 @@
 
     <main>
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-7">
               <div class="jumbotron">
 
                 <h1>Welcome To BioCare</h1>
                 <p>The company BioCare offer a selection of organic and eco-friendly products</p>
 
+                <div class="d-flex flex-wrap">
                 <% products.forEach(function(product) { %>
                   <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title"><%= product.productName %></h5>
-                      <h6 class="card-subtitle mb-2 text-muted"><%= product.categoryID%></h6>
+                      <h3 class="card-title"><%= product.productName %></h3>
+                      <h4 class="card-subtitle mb-2 text-muted"><%= product.categoryID.categoryName%></h4>
+                      <h5 class="card-subtitle mb-2 text-muted">by BioCare &copy;</h5>                    
                       <p class="card-text"> <%= product.productDesc %></p>
-                      <a href="#" class="card-link">More</a>
+                      <p class="card-text"> <%= product.productPrice %> €</p>                   
+                      <a class="card-link" href="/delete-product/<%= product._id %>">Delete</a>
                     </div>
                   </div>
                 <% }); %>
-
+                </div>
               </div>
             </div>
           
-            <div class="col-sm-4">
+            <div class="col-sm-5">
               <div class="well">
-                <h3>Look our shop !</h3>
+                <h2>Product Management</h2>
+
+                <div class="col-sm-8">
+                  <form method="post" action="/">
+
+                    <div class="form-group">
+                      <label for="inputName">Product Name</label>
+                      <input type="text" class="form-control" name="productName" placeholder="Astral">
+                      <small id="nameHelp" class="form-text text-muted">required</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="FormControlSelect">Select Category</label>
+                      <select class="form-control" name="categoryID">
+                        <% categories.forEach(function(category) { %>
+                          <option value="<%= category._id %>">
+                            <%= category.categoryName %>
+                          </option>
+                        <% }); %>
+                      </select>
+                      <small id="selectHelp" class="form-text text-muted">required</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="InputDescription">Price</label>
+                      <input type="number" class="form-control" name="productPrice" placeholder="100">
+                      <small id="priceHelp" class="form-text text-muted">required</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="formControlDescription">Description</label>
+                      <textarea class="form-control" name="productDesc" rows="2"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                  </form>
+                </div>
+
               </div>
             </div>
           </div>

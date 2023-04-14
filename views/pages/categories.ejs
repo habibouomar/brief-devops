@@ -15,24 +15,52 @@
 
     <main>
         <div class="row">
-            <div class="col-sm-6">
+
+            <div class="col-sm-7">
                 <div class="jumbotron">
                     <h1>Categories List</h1>
                     <p><%= tagline %></p>
-                    <ul>
-                        <% categories.forEach(function(category) { %>
-                          <li>
-                            <strong><%= category.categoryName %></strong>
-                            : <%= category.categoryDesc %>
-                          </li>
-                        <% }); %>
-                      </ul>
+
+                    <div class="d-flex flex-wrap">
+                      <% categories.forEach(function(category) { %>
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h3 class="card-title"><%= category.categoryName %></h3>
+                            <h4 class="card-subtitle mb-2 text-muted">by BioCare &copy;</h4>
+                            <p class="card-text"> <%= category.categoryDesc %></p>
+                            <a href="#" class="card-link">See Products</a>
+                          </div>
+                        </div>
+                      <% }); %>
+                    </div>
+
                   </div> 
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <div class="well">
                   <h2>Category Management</h2>
+                  
+                <div class="col-sm-8">
+                  <form method="post" action="/categories">
+
+                    <div class="form-group">
+                      <label for="categoryName">Category Name</label>
+                      <input type="text" class="form-control" name="categoryName" placeholder="Nostra Body">
+                      <small id="nameHelp" class="form-text text-muted">required</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="categoryDesc">Description</label>
+                      <textarea class="form-control" name="categoryDesc" rows="2"></textarea>
+                      <small id="descriptionHelp" class="form-text text-muted">required</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                  </form>
+                </div>
+
                 </div>
               </div>
             </div>

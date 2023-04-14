@@ -21,11 +21,12 @@ export const postCategory = async (req, res, next) =>{
     const categoryName = req.body.categoryName;
     const categoryDesc = req.body.categoryDesc;
 
-    const category = await CategoryModel.create({categoryName, categoryDesc})
-  
-    res.status(201).json({category})
+    await CategoryModel.create({categoryName, categoryDesc})
+
+    res.redirect("/categories")
     console.log("Category Successful Create");
 }
+
 
 export const updateCategoryById = async (req, res, next) =>{
     
