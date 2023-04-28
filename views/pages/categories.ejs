@@ -16,19 +16,20 @@
     <main>
         <div class="row">
 
-            <div class="col-sm-7">
+            <div class="col-sm-8">
                 <div class="jumbotron">
                     <h1>Categories List</h1>
-                    <p><%= tagline %></p>
+                    <p>Here is the complete list of our product categories.</p>
 
                     <div class="d-flex flex-wrap">
                       <% categories.forEach(function(category) { %>
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 20rem;">
                           <div class="card-body">
                             <h3 class="card-title"><%= category.categoryName %></h3>
                             <h4 class="card-subtitle mb-2 text-muted">by BioCare &copy;</h4>
                             <p class="card-text"> <%= category.categoryDesc %></p>
-                            <a href="#" class="card-link">See Products</a>
+                            <a href="/categories/products-category/<%= category._id %>" class="card-link">See All Products</a>
+                            <a href="/categories/update-category/<%= category._id %>" class="card-link">Update Category</a>
                           </div>
                         </div>
                       <% }); %>
@@ -37,7 +38,7 @@
                   </div> 
             </div>
 
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <div class="well">
                   <h2>Category Management</h2>
                   
@@ -53,7 +54,6 @@
                     <div class="form-group">
                       <label for="categoryDesc">Description</label>
                       <textarea class="form-control" name="categoryDesc" rows="2"></textarea>
-                      <small id="descriptionHelp" class="form-text text-muted">required</small>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>

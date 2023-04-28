@@ -7,10 +7,8 @@ const categorySchema = new Schema({
         type: String,
         require: true
     }, 
-    categoryDesc: {
-        type: String,
-        require: true
-    }
+    categoryDesc: String
+    
 });
 
 const CategoryModel = mongoose.model("category", categorySchema)

@@ -16,15 +16,13 @@
 
     <main>
         <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-8">
               <div class="jumbotron">
-
                 <h1>Welcome To BioCare</h1>
                 <p>The company BioCare offer a selection of organic and eco-friendly products</p>
-
                 <div class="d-flex flex-wrap">
                 <% products.forEach(function(product) { %>
-                  <div class="card" style="width: 18rem;">
+                  <div class="card" style="width: 20rem;">
                     <div class="card-body">
                       <h3 class="card-title"><%= product.productName %></h3>
                       <h4 class="card-subtitle mb-2 text-muted"><%= product.categoryID.categoryName%></h4>
@@ -39,7 +37,7 @@
               </div>
             </div>
           
-            <div class="col-sm-5">
+            <div class="col-sm-4">
               <div class="well">
                 <h2>Product Management</h2>
 

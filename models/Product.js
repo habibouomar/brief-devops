@@ -7,7 +7,8 @@ const productSchema = new Schema({
     },
     categoryID:{
         type: mongoose.Types.ObjectId,
-        ref: 'category'
+        ref: 'category',
+        required:true
     }, 
     productPrice: Number,
     productDesc: String
