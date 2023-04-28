@@ -1,4 +1,4 @@
-import express, { json } from "express";
+import express from "express";
 import bodyParser from "body-parser"
 import path from "path"
 import dotenv from "dotenv";
@@ -24,6 +24,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(homepageRouter);
 app.use(categoryRouter);
 
-app.listen(3000, () => {
-    console.log("Server is listenning at port 3000")
+app.listen(3001, () => {
+    console.log("Server is listenning at port 3001")
 })
